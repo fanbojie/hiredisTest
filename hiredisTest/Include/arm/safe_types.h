@@ -1,0 +1,134 @@
+/*------------------------------------------------------------------
+ * safe_types.h
+ *
+ * March 2007, Bo Berry
+ *
+ * Copyright (c) 2007-2009 Cisco Systems, Inc
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without restriction,
+ * including without limitation the rights to use, copy, modify, merge,
+ * publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *------------------------------------------------------------------
+ */
+
+#ifndef __SAFE_TYPES__
+#define __SAFE_TYPES__
+
+/*#include COMP_INC(posix, inttypes.h) */
+
+
+/*
+ * CONFIGURE: Include additional header files if needed.
+ */
+
+#ifdef WIN32
+#ifndef TRUE
+#define TRUE   ( 1 )
+#endif
+#else
+#ifndef TRUE
+#define TRUE   ( 1 )
+#endif
+#endif
+
+#ifndef FALSE
+#define FALSE  ( 0 )
+#endif
+
+#ifndef NULL
+#ifdef __cplusplus
+#define NULL (0)
+#else
+#define NULL ((void *) 0)
+#endif
+#endif
+
+
+#if 1
+
+#ifndef SAFEC_BOOLEAN_DEFINED
+#ifndef boolean
+typedef unsigned char boolean;
+#define SAFEC_BOOLEAN_DEFINED
+#endif
+#endif
+
+
+
+
+#if !defined(SOLARIS) && !defined(SOLARIS_X86)
+#ifndef int8_t
+typedef signed char int8_t;
+#endif
+#endif //!defined(SOLARIS) && !defined(SOLARIS_X86)
+
+#ifndef int16_t
+typedef short int16_t;
+#endif
+
+#ifndef int32_t
+typedef int int32_t;
+#endif
+
+#ifndef uchar_t
+typedef unsigned char uchar_t;
+#endif
+
+#ifndef uint8_t
+typedef unsigned char uint8_t;
+#endif
+
+#ifndef uint16_t
+typedef unsigned short uint16_t;
+#endif
+
+#ifndef uint32_t
+typedef unsigned int uint32_t;
+#endif
+
+
+#ifndef ushort
+typedef unsigned short ushort;
+#endif
+
+#ifndef ulong
+typedef unsigned long ulong;
+#endif
+
+
+#ifndef ulonglong
+typedef unsigned long long ulonglong;
+#endif
+
+
+#ifndef _RSIZE_T_DEFINED
+typedef unsigned long rsize_t;
+#define _RSIZE_T_DEFINED
+#endif
+
+/*
+#ifndef wchar_t
+typedef unsigned short wchar_t;
+#define _WCHAR_T_DEFINED
+#endif
+*/
+
+#endif //1
+
+
+#endif /* __SAFE_TYPES__ */
